@@ -16,7 +16,11 @@ class Slide extends Component {
       axios
         .get(`https://api.github.com/users/${this.props.nickname}`)
         .then(res => {
-          this.setState({ avatar: res.data.avatar_url, loading: false });
+          this.setState({
+            avatar: res.data.avatar_url,
+            loading: false,
+            error: false
+          });
         })
         .catch(() => {
           this.setState({ error: true, loading: false });
@@ -49,7 +53,11 @@ class Slide extends Component {
         {/* When avatar is loading */}
         {loading ? <Loader /> : null}
         {/* When error occurs */}
-        {error ? <h3 className="error-info">Something wen't wrong. We are unable to load image.</h3> : null}
+        {error ? (
+          <h3 className="error-info">
+            Something wen't wrong. We are unable to load image.
+          </h3>
+        ) : null}
         <h3 className="nickname">{nickname}</h3>
       </div>
     );
