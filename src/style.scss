@@ -1,0 +1,209 @@
+@import 'scss/breakpoints',
+'scss/mixins';
+$main-dark-color:#262323;
+
+body {
+    background: $main-dark-color;
+    color: wheat;
+}
+
+#slider {
+    margin: 0 auto;
+    width: 90vw;
+    height: 75vh;
+    margin-top: 15vh;
+    text-align: center;
+    border: 3.5px solid wheat;
+    box-shadow: 0px 0px 22px 5px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    position: relative;
+
+    @include mq('smLandscape') {
+        width: 75vw;
+    }
+
+    @include mq('md') {
+        width: 75vw;
+    }
+
+    @include mq('lgLandscape') {
+        width: 50vw;
+    }
+}
+
+.slidesWrapper {
+    height: 100%;
+    display: flex;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    color: $main-dark-color;
+    width: 80px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-size: 300% 100%;
+    box-shadow: 0 4px 10px 0 rgba(245, 222, 108, 0.75);
+    background-image: linear-gradient(90deg, #fcb23c, #fce95d, #f7c14c,#f4d83a);
+    transition: background .3s ease-in;
+    border-radius: 30px;
+    cursor: pointer;
+    &:active {
+        box-shadow: 0 0px 15px 0 rgba(38,35,35, 0.9) inset;
+    }
+
+    @include mq('md') {
+        width: 100px;
+        height: 45px;
+        font-size: 1.15em;
+    }
+
+    @include mq('lgLandscape') {
+        width: 100px;
+        height: 45px;
+        font-size: 1.25em;
+        &:hover {
+            background-position: 100% 0%;
+        }
+    }
+
+
+}
+
+.btn-next {
+    right: 7.5px;
+    @include mq('xsH') {
+        right: 20px;
+    }
+
+    @include mq('md') {
+        right: 35px;
+    }
+    @include mq('lg') {
+        right: 50px;
+    }
+    @include mq('smLandscape') {
+        right: 30px;
+    }
+
+    @include mq('lgLandscape') {
+        right: 50px;
+    }
+}
+
+.btn-prev {
+    left: 7.5px;
+    @include mq('xsH') {
+        left: 20px;
+    }
+
+    @include mq('md') {
+        left: 35px;
+    }
+    @include mq('lg') {
+        left: 50px;
+    }
+    @include mq('smLandscape') {
+        left: 30px;
+    }
+
+    @include mq('lgLandscape') {
+        left: 50px;
+    }
+}
+
+.loader,
+img {
+    margin: auto auto;
+    width: 150px;
+    height: 150px;
+
+    @include mq('xsH') {
+        width: 175px;
+        height: 175px;
+    }
+
+    @include mq('md') {
+        width: 225px;
+        height: 225px;
+    }
+
+    @include mq('lg') {
+        width: 250px;
+        height: 250px;
+    }
+
+    @include mq('lgLandscape') {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+img {
+    border-radius: 50%;
+}
+
+.loader-info {
+    margin: auto auto;
+    font-size: 1.75em;
+
+    @include mq('md') {
+        font-size: 2em;
+    }
+    @include mq('lgLandscape') {
+        font-size: 2em;
+    }
+}
+
+.error-info {
+    margin: auto auto;
+
+    @include mq('md') {
+        font-size: 2em;
+    }
+    @include mq('lgLandscape') {
+        font-size: 2em;
+    }
+    width: 80%;
+}
+
+.nickname {
+    font-size: 2em;
+    margin: auto auto;
+
+    @include mq('md') {
+        font-size: 2.5em;
+    }
+    @include mq('lgLandscape') {
+        font-size: 2.5em;
+    }
+}
+
+.loader {
+    display: block;
+    border: 5px solid rgba(245, 222, 179, .2);
+    border-radius: 50%;
+    border-top-color: rgb(245, 222, 179);
+    animation: loaderSpin 1s ease-out infinite;
+}
+
+@keyframes loaderSpin {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

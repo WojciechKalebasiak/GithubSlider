@@ -1,0 +1,54 @@
+@mixin mq($breakpoint) {
+    @if($breakpoint=='xs') {
+        @media (max-width: map-get($breakpoints, $breakpoint)) and (orientation:portrait) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='xsLandscape') {
+        @media (max-width: map-get($breakpoints, 'xs')) and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='smLandscape') {
+        @media (min-width: map-get($breakpoints, 'sm')) and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='mdLandscape') {
+        @media (min-width: map-get($breakpoints, 'md')) and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='lgLandscape') {
+        @media (min-width: map-get($breakpoints, 'lg')) and (orientation: landscape) {
+            @content;
+        }
+    }
+    @else if($breakpoint=='xlgLandscape') {
+        @media (min-width: map-get($breakpoints, 'xlg')) and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='xsxs') {
+        @media (max-width: map-get($breakpoints, 'xs')) and (max-height:map-get($breakpoints, 'xs')) {
+            @content;
+        }
+    }
+
+    @else if($breakpoint=='xsH') {
+        @media (max-width: map-get($breakpoints, 'xs')) and (min-height:700px) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: map-get($breakpoints, $breakpoint)) and (orientation:portrait) {
+            @content;
+        }
+    }
+}
