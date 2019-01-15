@@ -1,0 +1,21 @@
+$breakpoints: (
+    'xs':576px,
+    'sm':576px,
+    'md':768px,
+    'lg':992px,
+    'xlg':1200px
+);
+@mixin mq($breakpoint) {
+    @if($breakpoint=='xs') {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    
+}
