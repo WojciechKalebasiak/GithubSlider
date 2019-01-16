@@ -19,7 +19,7 @@ class Slider extends Component {
     //First Slide
     // <<<< direction
     if (this.state.currentSlideIndex === 0 && direction < 0) {
-      this.setState(state => ({ currentSlideIndex: state.nicknames.length - 1 }));
+      this.setState(state => ({ currentSlideIndex: nicknames.length - 1 }));
       return;
     }
     //Last Slide
